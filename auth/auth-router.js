@@ -11,7 +11,7 @@ const loginUserExist = require('../middleware/login-user-exist')
 const registerBody = require('../middleware/register-body')
 const registerUserExist = require('../middleware/register-user-exist')
 
-
+// ./api/auth/register
 router.post('/register', registerBody, registerUserExist, (req, res) => {
     let user = req.body
     const hash = bcrypt.hashSync(user.password, 10)
@@ -27,6 +27,7 @@ router.post('/register', registerBody, registerUserExist, (req, res) => {
         })
 })
 
+// ./api/auth/login
 router.post('/login', loginBody, loginUserExist, (req, res) => {
     let { username, password } = req.body;
 
@@ -45,6 +46,7 @@ router.post('/login', loginBody, loginUserExist, (req, res) => {
         });
 })
 
+//creates Token
 function generateToken(user) {
     const payload = {
         id: user.id,
