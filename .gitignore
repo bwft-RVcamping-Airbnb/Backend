@@ -89,4 +89,4 @@ public
 .fusebox/
 
 # DynamoDB Local files
-.dynamodb/
+.dynamodb/node_modules
