@@ -15,7 +15,7 @@ server.use('/api/auth', authRouter)
 //server.use('/api/listings', listingRouter)
 
 server.get('/', (req, res) => {
-    res.status(200).json({ api: 'up' });
+    res.status(200).json({ api: 'we are ready to do some camping' });
 });
 
 module.exports = server;
