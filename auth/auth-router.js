@@ -18,8 +18,8 @@ router.post('/register', registerBody, registerUserExist, (req, res) => {
     user.password = hash;
     
     Users.add(user)
-        .then(res => {
-            res.status(201).json({ message: `User created`})
+        .then(response => {
+            res.status(201).json({ message: `User created`, response})
         })
         .catch(error => {
             console.log(error)
