@@ -10,9 +10,9 @@ function findBy(filter) {
     return db('users').where(filter);
 }
 
-async function add(user) {
+function add(user) {
     // const [id] = await 
-    return db('users').insert({id});
+    return db('users').insert(user, "id");
 
     // return findById(id);
 }
