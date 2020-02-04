@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
             }
         })
         .catch(error => {
+            console.log('userexists', error)
             res.status(500).json({ message: 'Error connecting with the server'})
         })
 }
