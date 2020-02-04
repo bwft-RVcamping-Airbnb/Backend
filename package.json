@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
-    "test": "cross-env DB_ENV=testing jest --watch"
+        "server": "nodemon index.js",
+        "start": "node index.js",
+        "test": "cross-env DB_ENV=testing jest --watch"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,8 @@
     "nodemon": "^2.0.2",
     "jest": "^25.1.0",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+      "testEnvironment": "node"
   }
 }
