@@ -5,7 +5,7 @@ exports.up = function (knex) {
             tbl.increments()
             tbl.string('username', 128).notNullable().unique()
             tbl.string('password', 128).notNullable()
-            tbl.boolean('is_land_owner').notNullable()
+            tbl.integer('is_land_owner').notNullable()
         })
         .createTable('listings', tbl => {
             tbl.increments()
