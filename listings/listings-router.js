@@ -1,19 +1,7 @@
 const router = require('express').Router();
-//const AWS = require('aws-sdk')
-//const path = require('path');
-// const multer = require('multer');
-// const upload = multer({
-//     limits: { fileSize: 2097152},
-//     storage: multer.memoryStorage()
-// })
-// const uuid = require('uuid');
+
 require('dotenv').config();
 
-// const s3 = new AWS.S3({
-//     accessKeyId: process.env.AwsAccessKeyId,
-//     secretAccessKey: process.env.AwsSecretAccessKey,
-//     apiVersion: '2006-03-01'
-// });
 
 const Listings = require('./listings-model')
 const Reservations = require('../reservations/reservations-model')
@@ -89,43 +77,6 @@ router.post('/', authenticate, locationExists, (req, res) => {
     }
 })
 
-// router.post('/image', authenticate, upload.single('image'), locationExists, (req, res) => {
-
-//     if (res.user.is_land_owner) {
-//         let listing = req.body
-//         listing.owner_id = res.user.id
-
-//         if(!['image/gif','image/jpeg','image/jpg','image/png'].includes(req.file.mimetype)) {
-//             return res.status(400).json({ message: 'Non-supported image file type'})
-//         }
-    
-//         const file = path.parse(req.file.originalname)
-//         if(!file.ext) {
-//             return res.status(400).json({ message: 'No file extension provided'})
-//         }
-    
-//         const Body = req.file.buffer;
-//         const Bucket = process.env.AwsS3BucketName;
-//         const Key = `${uuid()}${file.ext}`;
-//         s3.upload({ Body, Bucket, Key }, (err, data) => {
-//             console.log(err, data);
-//             listing.photo = `${process.env.AwsCloudFrontHost}/${data.Key}`
-
-//             console.log(listing)
-//             Listings.add(listing)
-//             .then(response => {
-//                 res.status(201).json({ message: 'Listing created' })
-//             })
-//             .catch(error => {
-//                 console.log(error)
-//                 res.status(500).json({ message: 'Error connect with server' })
-//             })
-//         });
-//     } else {
-//         res.status(401).json({ message: 'Logged in user has no access' })
-//     }
-
-// })
 
 router.delete('/:id', authenticate, (req, res) => {
     if (res.user.is_land_owner) {
